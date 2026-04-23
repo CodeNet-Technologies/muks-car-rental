@@ -21,38 +21,10 @@
             width: 100%;
         }
 
-        /* Smooth scroll */
         html {
             scroll-behavior: smooth;
             overflow-x: hidden;
             width: 100%;
-        }
-
-        /* Custom cursor - disabled on mobile */
-        .cursor-dot {
-            width: 6px;
-            height: 6px;
-            background: #000;
-            border-radius: 50%;
-            position: fixed;
-            pointer-events: none;
-            z-index: 9999;
-            transition: transform 0.2s ease;
-        }
-
-        .cursor-outline {
-            width: 40px;
-            height: 40px;
-            border: 1.5px solid rgba(0,0,0,0.2);
-            border-radius: 50%;
-            position: fixed;
-            pointer-events: none;
-            z-index: 9998;
-            transition: all 0.2s ease;
-        }
-
-        @media (max-width: 768px) {
-            .cursor-dot, .cursor-outline { display: none; }
         }
 
         /* Container */
@@ -61,13 +33,6 @@
             margin: 0 auto;
             padding: 0 20px;
             width: 100%;
-        }
-
-        /* iPhone 6 specific container padding */
-        @media (max-width: 375px) {
-            .container {
-                padding: 0 16px;
-            }
         }
 
         /* Navigation */
@@ -80,7 +45,6 @@
             backdrop-filter: blur(20px);
             z-index: 1000;
             border-bottom: 1px solid rgba(0,0,0,0.05);
-            transition: all 0.3s ease;
             width: 100%;
         }
 
@@ -88,16 +52,10 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1rem 1.5rem;
+            padding: 1rem 1.25rem;
             max-width: 1440px;
             margin: 0 auto;
             width: 100%;
-        }
-
-        @media (max-width: 375px) {
-            .nav-container {
-                padding: 0.875rem 1rem;
-            }
         }
 
         .logo {
@@ -106,18 +64,8 @@
             gap: 0.25rem;
             font-size: 1.25rem;
             font-weight: 700;
-            letter-spacing: -0.02em;
             text-decoration: none;
             flex-shrink: 0;
-        }
-
-        @media (max-width: 375px) {
-            .logo {
-                font-size: 1.125rem;
-            }
-            .logo i {
-                font-size: 1.125rem;
-            }
         }
 
         .logo i {
@@ -145,7 +93,7 @@
 
         .nav-links {
             display: flex;
-            gap: 2rem;
+            gap: 1.5rem;
             align-items: center;
         }
 
@@ -154,6 +102,7 @@
             font-size: 0.875rem;
         }
 
+        /* Mobile Styles */
         @media (max-width: 768px) {
             .mobile-menu-btn {
                 display: block;
@@ -161,7 +110,7 @@
 
             .nav-links {
                 display: none;
-                position: fixed;
+                position: absolute;
                 top: 60px;
                 left: 0;
                 right: 0;
@@ -170,11 +119,11 @@
                 padding: 1.5rem;
                 gap: 1rem;
                 border-bottom: 1px solid #f0f0f0;
-                box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
                 z-index: 999;
             }
 
-            .nav-links.active {
+            .nav-links.show {
                 display: flex;
             }
 
@@ -192,7 +141,6 @@
             font-weight: 500;
             font-size: 0.875rem;
             transition: color 0.2s;
-            position: relative;
             display: inline-flex;
             align-items: center;
         }
@@ -211,6 +159,11 @@
             gap: 0.5rem;
         }
 
+        .btn-glass:hover {
+            background: #000;
+            color: white;
+        }
+
         /* Hero */
         .hero {
             min-height: 100vh;
@@ -218,29 +171,14 @@
             align-items: center;
             padding: 100px 0 60px;
             position: relative;
-            overflow: hidden;
             width: 100%;
         }
 
-        @media (max-width: 375px) {
+        @media (max-width: 768px) {
             .hero {
                 padding: 80px 0 50px;
+                text-align: center;
             }
-        }
-
-        .hero-bg {
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 50%;
-            height: 100%;
-            background: url('https://images.unsplash.com/photo-1494976388531-d1058494cdd8?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80') center/cover;
-            clip-path: polygon(20% 0, 100% 0, 100% 100%, 0% 100%);
-            z-index: 0;
-        }
-
-        @media (max-width: 968px) {
-            .hero-bg { display: none; }
         }
 
         .hero-content {
@@ -267,40 +205,25 @@
             margin-bottom: 1rem;
         }
 
-        @media (max-width: 375px) {
-            .hero-badge {
-                font-size: 0.7rem;
-                padding: 0.375rem 0.875rem;
-            }
-        }
-
         .hero h1 {
-            font-size: 3.5rem;
+            font-size: 2.5rem;
             font-weight: 700;
-            line-height: 1.1;
+            line-height: 1.2;
             letter-spacing: -0.03em;
             margin-bottom: 1rem;
         }
 
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
-        }
-
         @media (max-width: 375px) {
-            .hero h1 { font-size: 2rem; }
+            .hero h1 {
+                font-size: 2rem;
+            }
         }
 
         .hero p {
-            font-size: 1rem;
+            font-size: 0.9375rem;
             color: #6b7280;
             line-height: 1.5;
             margin-bottom: 1.5rem;
-        }
-
-        @media (max-width: 375px) {
-            .hero p {
-                font-size: 0.875rem;
-            }
         }
 
         .search-card {
@@ -317,25 +240,16 @@
         @media (max-width: 768px) {
             .search-card {
                 flex-direction: column;
-                padding: 0.75rem;
             }
         }
 
         .search-input {
             flex: 1;
-            padding: 0.875rem 1rem;
+            padding: 0.75rem 1rem;
             border: 1px solid #f0f0f0;
             border-radius: 12px;
             font-size: 0.875rem;
-            transition: all 0.2s;
             min-width: 0;
-        }
-
-        @media (max-width: 375px) {
-            .search-input {
-                padding: 0.75rem;
-                font-size: 0.813rem;
-            }
         }
 
         .trust-badge {
@@ -346,13 +260,6 @@
             color: #9ca3af;
             flex-wrap: wrap;
             justify-content: center;
-        }
-
-        @media (max-width: 375px) {
-            .trust-badge {
-                gap: 0.75rem;
-                font-size: 0.625rem;
-            }
         }
 
         /* Sections */
@@ -367,23 +274,11 @@
             }
         }
 
-        @media (max-width: 375px) {
-            section {
-                padding: 40px 0;
-            }
-        }
-
         .section-header {
             text-align: center;
             max-width: 600px;
-            margin: 0 auto 2.5rem;
+            margin: 0 auto 2rem;
             padding: 0 1rem;
-        }
-
-        @media (max-width: 375px) {
-            .section-header {
-                margin-bottom: 1.5rem;
-            }
         }
 
         .section-tag {
@@ -395,18 +290,15 @@
         }
 
         .section-header h2 {
-            font-size: 2rem;
+            font-size: 1.75rem;
             font-weight: 700;
-            letter-spacing: -0.02em;
             margin-bottom: 0.75rem;
         }
 
-        @media (max-width: 768px) {
-            .section-header h2 { font-size: 1.75rem; }
-        }
-
         @media (max-width: 375px) {
-            .section-header h2 { font-size: 1.5rem; }
+            .section-header h2 {
+                font-size: 1.5rem;
+            }
         }
 
         .section-header p {
@@ -417,30 +309,23 @@
         /* Feature Grid */
         .feature-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
+            grid-template-columns: 1fr;
+            gap: 1rem;
             width: 100%;
         }
 
-        @media (max-width: 968px) {
+        @media (min-width: 768px) {
             .feature-grid {
-                grid-template-columns: 1fr;
-                gap: 1rem;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 1.5rem;
             }
         }
 
         .feature-item {
             padding: 1.5rem;
             border-radius: 20px;
-            transition: all 0.3s;
             background: #ffffff;
             border: 1px solid #f0f0f0;
-        }
-
-        @media (max-width: 375px) {
-            .feature-item {
-                padding: 1.25rem;
-            }
         }
 
         .feature-icon {
@@ -467,31 +352,29 @@
             line-height: 1.5;
         }
 
-        /* Car Grid */
+        /* Car Grid - FIXED */
         .car-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
+            grid-template-columns: 1fr;
+            gap: 1.25rem;
             width: 100%;
         }
 
-        @media (max-width: 968px) {
+        @media (min-width: 640px) {
             .car-grid {
                 grid-template-columns: repeat(2, 1fr);
-                gap: 1rem;
             }
         }
 
-        @media (max-width: 640px) {
+        @media (min-width: 1024px) {
             .car-grid {
-                grid-template-columns: 1fr;
+                grid-template-columns: repeat(3, 1fr);
             }
         }
 
         .car-card {
             border-radius: 20px;
             overflow: hidden;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             background: white;
             border: 1px solid #f0f0f0;
         }
@@ -500,19 +383,13 @@
             height: 200px;
             overflow: hidden;
             position: relative;
-        }
-
-        @media (max-width: 375px) {
-            .car-img {
-                height: 180px;
-            }
+            background: #f5f5f5;
         }
 
         .car-img img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.6s;
         }
 
         .car-badge {
@@ -529,12 +406,6 @@
 
         .car-info {
             padding: 1.25rem;
-        }
-
-        @media (max-width: 375px) {
-            .car-info {
-                padding: 1rem;
-            }
         }
 
         .car-title {
@@ -567,37 +438,20 @@
         /* Owner Section */
         .owner-showcase {
             background: #fafafa;
-            border-radius: 32px;
-            padding: 2rem;
+            border-radius: 28px;
+            padding: 1.5rem;
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
             align-items: center;
             width: 100%;
         }
 
-        @media (max-width: 968px) {
+        @media (min-width: 768px) {
             .owner-showcase {
-                grid-template-columns: 1fr;
-                padding: 1.5rem;
-                gap: 1.5rem;
-            }
-        }
-
-        @media (max-width: 375px) {
-            .owner-showcase {
-                padding: 1.25rem;
-                border-radius: 24px;
-            }
-        }
-
-        .owner-showcase h2 {
-            font-size: 1.75rem !important;
-        }
-
-        @media (max-width: 375px) {
-            .owner-showcase h2 {
-                font-size: 1.5rem !important;
+                grid-template-columns: 1fr 1fr;
+                padding: 2rem;
+                gap: 2rem;
             }
         }
 
@@ -606,13 +460,7 @@
             gap: 1.5rem;
             margin: 1.5rem 0;
             flex-wrap: wrap;
-        }
-
-        @media (max-width: 375px) {
-            .owner-stats {
-                gap: 1rem;
-                justify-content: space-between;
-            }
+            justify-content: space-between;
         }
 
         .stat h4 {
@@ -620,27 +468,23 @@
             font-weight: 700;
         }
 
-        @media (max-width: 375px) {
-            .stat h4 {
-                font-size: 1.25rem;
-            }
-            .stat p {
-                font-size: 0.75rem;
-            }
+        .stat p {
+            color: #6b7280;
+            font-size: 0.75rem;
         }
 
         /* Testimonials */
         .testimonial-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
+            grid-template-columns: 1fr;
+            gap: 1rem;
             width: 100%;
         }
 
-        @media (max-width: 968px) {
+        @media (min-width: 768px) {
             .testimonial-grid {
-                grid-template-columns: 1fr;
-                gap: 1rem;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1.5rem;
             }
         }
 
@@ -650,12 +494,6 @@
             border-radius: 20px;
         }
 
-        @media (max-width: 375px) {
-            .testimonial-card {
-                padding: 1.25rem;
-            }
-        }
-
         .testimonial-avatar {
             width: 44px;
             height: 44px;
@@ -663,6 +501,7 @@
             background: #e5e5e5;
             margin-bottom: 0.875rem;
             background-size: cover;
+            background-position: center;
         }
 
         .testimonial-text {
@@ -677,71 +516,42 @@
             background: #000;
             color: white;
             text-align: center;
-            border-radius: 32px;
-            padding: 2.5rem 2rem;
+            border-radius: 28px;
+            padding: 2rem 1.5rem;
             width: 100%;
         }
 
-        @media (max-width: 768px) {
-            .cta-section {
-                padding: 2rem 1.5rem;
-                border-radius: 28px;
-            }
-        }
-
-        @media (max-width: 375px) {
-            .cta-section {
-                padding: 1.5rem 1rem;
-                border-radius: 24px;
-            }
-        }
-
         .cta-section h2 {
-            font-size: 1.75rem;
+            font-size: 1.5rem;
             margin-bottom: 0.75rem;
-        }
-
-        @media (max-width: 375px) {
-            .cta-section h2 {
-                font-size: 1.5rem;
-            }
-            .cta-section p {
-                font-size: 0.875rem;
-                margin-bottom: 1.5rem !important;
-            }
         }
 
         .btn-white {
             background: white;
             color: black;
-            padding: 0.875rem 1.5rem;
+            padding: 0.75rem 1.5rem;
             border-radius: 100px;
             border: none;
             font-weight: 600;
             cursor: pointer;
-            transition: transform 0.2s;
             font-size: 0.875rem;
+            width: 100%;
+            max-width: 250px;
+            margin-bottom: 0.75rem;
         }
 
-        @media (max-width: 768px) {
-            .btn-white {
-                padding: 0.75rem 1.25rem;
-                margin-bottom: 0.75rem;
-                width: 100%;
-                max-width: 280px;
-            }
-            
-            .cta-section .btn-glass {
-                margin-left: 0 !important;
-                width: 100%;
-                max-width: 280px;
-            }
-            
-            .cta-buttons {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                gap: 0.75rem;
+        .cta-section .btn-glass {
+            background: rgba(255,255,255,0.1);
+            color: white;
+            width: 100%;
+            max-width: 250px;
+            margin-left: 0;
+        }
+
+        @media (min-width: 768px) {
+            .btn-white, .cta-section .btn-glass {
+                width: auto;
+                margin: 0 0.5rem;
             }
         }
 
@@ -749,30 +559,23 @@
         .footer {
             background: #000;
             color: #9ca3af;
-            padding: 3rem 0 1.5rem;
+            padding: 2.5rem 0 1.5rem;
             margin-top: 3rem;
             width: 100%;
         }
 
-        @media (max-width: 768px) {
-            .footer {
-                margin-top: 2rem;
-                padding: 2rem 0 1.5rem;
-            }
-        }
-
         .footer-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            grid-template-columns: 1fr;
             gap: 1.5rem;
             margin-bottom: 2rem;
+            text-align: center;
         }
 
-        @media (max-width: 375px) {
+        @media (min-width: 640px) {
             .footer-grid {
-                grid-template-columns: 1fr;
-                text-align: center;
-                gap: 1.25rem;
+                grid-template-columns: repeat(4, 1fr);
+                text-align: left;
             }
         }
 
@@ -792,21 +595,49 @@
             margin: 1.5rem 0;
         }
 
-        /* Mobile Menu */
-        @media (max-width: 768px) {
-            .cta-buttons {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-            }
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(8px);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 24px;
+            max-width: 500px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            padding: 1.5rem;
+        }
+
+        .modal-content h2 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
+
+        .modal-content input {
+            width: 100%;
+            padding: 0.75rem;
+            margin-bottom: 0.875rem;
+            border: 1px solid #e5e5e5;
+            border-radius: 12px;
+            font-size: 0.875rem;
+            font-family: inherit;
         }
     </style>
 </head>
 <body>
-    <!-- Custom Cursor -->
-    <div class="cursor-dot"></div>
-    <div class="cursor-outline"></div>
-
     <!-- Navigation -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
@@ -814,23 +645,23 @@
                 <i class="fas fa-car"></i>
                 <span>muks</span>
             </a>
-            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+            <button class="mobile-menu-btn" id="menuBtn">
                 <i class="fas fa-bars"></i>
             </button>
             <div class="nav-links" id="navLinks">
-                <a href="#home" onclick="closeMobileMenu()">
+                <a href="#home" class="nav-link">
                     <i class="fas fa-home"></i> Home
                 </a>
-                <a href="#cars" onclick="closeMobileMenu()">
+                <a href="#cars" class="nav-link">
                     <i class="fas fa-car-side"></i> Vehicles
                 </a>
-                <a href="#owners" onclick="closeMobileMenu()">
+                <a href="#owners" class="nav-link">
                     <i class="fas fa-chart-line"></i> For Owners
                 </a>
-                <a href="#" onclick="openOwnerModal(); closeMobileMenu()">
+                <a href="#" onclick="openOwnerModal(); return false;">
                     <i class="fas fa-plus-circle"></i> List your car
                 </a>
-                <button class="btn-glass" onclick="openLoginModal(); closeMobileMenu()">
+                <button class="btn-glass" onclick="openLoginModal()">
                     <i class="fas fa-sign-in-alt"></i> Sign in →
                 </button>
             </div>
@@ -840,7 +671,6 @@
     <main>
         <!-- Hero -->
         <section class="hero" id="home">
-            <div class="hero-bg"></div>
             <div class="container">
                 <div class="hero-content">
                     <span class="hero-badge">✨ Trusted by 10,000+ drivers</span>
@@ -897,7 +727,9 @@
                     <h2>Drive something extraordinary</h2>
                     <p>From daily drivers to exotic supercars</p>
                 </div>
-                <div class="car-grid" id="carGrid"></div>
+                <div class="car-grid" id="carGrid">
+                    <!-- Cars will be loaded here -->
+                </div>
             </div>
         </section>
 
@@ -907,7 +739,7 @@
                 <div class="owner-showcase">
                     <div>
                         <div class="section-tag">For car owners</div>
-                        <h2>Turn your car into income</h2>
+                        <h2 style="font-size: 1.75rem; margin-bottom: 1rem;">Turn your car into income</h2>
                         <p style="color: #6b7280; margin-bottom: 1.25rem;">Your vehicle sits idle 95% of the time. List it with Muks and earn $500+ monthly while we handle everything.</p>
                         <div class="owner-stats">
                             <div class="stat">
@@ -962,10 +794,8 @@
                 <div class="cta-section">
                     <h2>Ready to drive or earn?</h2>
                     <p style="margin-bottom: 1.5rem; color: #9ca3af;">Join thousands already using Muks</p>
-                    <div class="cta-buttons">
-                        <button class="btn-white" onclick="openOwnerModal()">List your car</button>
-                        <button class="btn-glass" style="background: rgba(255,255,255,0.1); color: white;" onclick="searchCars()">Browse cars</button>
-                    </div>
+                    <button class="btn-white" onclick="openOwnerModal()">List your car</button>
+                    <button class="btn-glass" style="background: rgba(255,255,255,0.1); color: white;" onclick="searchCars()">Browse cars</button>
                 </div>
             </div>
         </section>
@@ -1003,94 +833,140 @@
     </footer>
 
     <!-- Modals -->
-    <div id="ownerModal" class="modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); backdrop-filter:blur(8px); z-index:2000; justify-content:center; align-items:center;">
-        <div style="background:white; border-radius:28px; max-width:500px; width:90%; padding:1.5rem;">
-            <h2 style="margin-bottom:1.25rem; font-size:1.5rem;">List your car</h2>
+    <div id="ownerModal" class="modal">
+        <div class="modal-content">
+            <h2>List your car</h2>
             <form id="ownerForm">
-                <input type="text" placeholder="Full name" style="width:100%; padding:0.75rem; margin-bottom:0.875rem; border:1px solid #e5e5e5; border-radius:12px; font-size:0.875rem;" required>
-                <input type="email" placeholder="Email" style="width:100%; padding:0.75rem; margin-bottom:0.875rem; border:1px solid #e5e5e5; border-radius:12px; font-size:0.875rem;" required>
-                <input type="text" placeholder="Car model" style="width:100%; padding:0.75rem; margin-bottom:0.875rem; border:1px solid #e5e5e5; border-radius:12px; font-size:0.875rem;" required>
-                <input type="number" placeholder="Daily rate ($)" style="width:100%; padding:0.75rem; margin-bottom:0.875rem; border:1px solid #e5e5e5; border-radius:12px; font-size:0.875rem;" required>
-                <button type="submit" style="width:100%; background:#000; color:white; padding:0.875rem; border:none; border-radius:12px; font-weight:600; font-size:0.875rem;">Submit →</button>
+                <input type="text" placeholder="Full name" required>
+                <input type="email" placeholder="Email" required>
+                <input type="text" placeholder="Car model" required>
+                <input type="number" placeholder="Daily rate ($)" required>
+                <button type="submit" style="width:100%; background:#000; color:white; padding:0.75rem; border:none; border-radius:12px; font-weight:600;">Submit →</button>
             </form>
-            <button onclick="closeOwnerModal()" style="width:100%; margin-top:0.875rem; padding:0.75rem; background:#f5f5f5; border:none; border-radius:12px; font-size:0.875rem;">Cancel</button>
+            <button onclick="closeOwnerModal()" style="width:100%; margin-top:0.75rem; padding:0.75rem; background:#f5f5f5; border:none; border-radius:12px;">Cancel</button>
         </div>
     </div>
 
-    <div id="loginModal" class="modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); backdrop-filter:blur(8px); z-index:2000; justify-content:center; align-items:center;">
-        <div style="background:white; border-radius:28px; max-width:400px; width:90%; padding:1.5rem;">
-            <h2 style="margin-bottom:1.25rem; font-size:1.5rem;">Welcome back</h2>
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <h2>Welcome back</h2>
             <form id="loginForm">
-                <input type="email" placeholder="Email" style="width:100%; padding:0.75rem; margin-bottom:0.875rem; border:1px solid #e5e5e5; border-radius:12px; font-size:0.875rem;" required>
-                <input type="password" placeholder="Password" style="width:100%; padding:0.75rem; margin-bottom:0.875rem; border:1px solid #e5e5e5; border-radius:12px; font-size:0.875rem;" required>
-                <button type="submit" style="width:100%; background:#000; color:white; padding:0.875rem; border:none; border-radius:12px; font-weight:600; font-size:0.875rem;">Sign in →</button>
+                <input type="email" placeholder="Email" required>
+                <input type="password" placeholder="Password" required>
+                <button type="submit" style="width:100%; background:#000; color:white; padding:0.75rem; border:none; border-radius:12px; font-weight:600;">Sign in →</button>
             </form>
-            <button onclick="closeLoginModal()" style="width:100%; margin-top:0.875rem; padding:0.75rem; background:#f5f5f5; border:none; border-radius:12px; font-size:0.875rem;">Cancel</button>
+            <button onclick="closeLoginModal()" style="width:100%; margin-top:0.75rem; padding:0.75rem; background:#f5f5f5; border:none; border-radius:12px;">Cancel</button>
         </div>
     </div>
 
     <script>
+        // Car data
         const cars = [
-            { name: "Porsche 911 Turbo", year: "2024", price: 299, passengers: 4, trans: "Auto", img: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=800&h=600&fit=crop", badge: "Exotic" },
-            { name: "Tesla Model S Plaid", year: "2024", price: 189, passengers: 5, trans: "Auto", img: "https://images.unsplash.com/photo-1617814076367-b759c7d7e738?w=800&h=600&fit=crop", badge: "Electric" },
-            { name: "Range Rover Sport", year: "2023", price: 199, passengers: 5, trans: "Auto", img: "https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=800&h=600&fit=crop", badge: "SUV" },
-            { name: "Mercedes-AMG GT", year: "2023", price: 259, passengers: 4, trans: "Auto", img: "https://images.unsplash.com/photo-1621135802920-133df287f89c?w=800&h=600&fit=crop", badge: "Luxury" },
-            { name: "BMW i7", year: "2024", price: 179, passengers: 5, trans: "Auto", img: "https://images.unsplash.com/photo-1617814076367-b759c7d7e738?w=800&h=600&fit=crop", badge: "Electric" },
-            { name: "Lamborghini Urus", year: "2024", price: 499, passengers: 5, trans: "Auto", img: "https://images.unsplash.com/photo-1580274455191-1c62238fa333?w=800&h=600&fit=crop", badge: "Super SUV" }
+            { name: "Porsche 911 Turbo", year: "2024", price: 299, passengers: 4, trans: "Auto", img: "https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=600&h=400&fit=crop", badge: "Exotic" },
+            { name: "Tesla Model S Plaid", year: "2024", price: 189, passengers: 5, trans: "Auto", img: "https://images.unsplash.com/photo-1617814076367-b759c7d7e738?w=600&h=400&fit=crop", badge: "Electric" },
+            { name: "Range Rover Sport", year: "2023", price: 199, passengers: 5, trans: "Auto", img: "https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=600&h=400&fit=crop", badge: "SUV" },
+            { name: "Mercedes-AMG GT", year: "2023", price: 259, passengers: 4, trans: "Auto", img: "https://images.unsplash.com/photo-1621135802920-133df287f89c?w=600&h=400&fit=crop", badge: "Luxury" },
+            { name: "BMW i7", year: "2024", price: 179, passengers: 5, trans: "Auto", img: "https://images.unsplash.com/photo-1617814076367-b759c7d7e738?w=600&h=400&fit=crop", badge: "Electric" },
+            { name: "Lamborghini Urus", year: "2024", price: 499, passengers: 5, trans: "Auto", img: "https://images.unsplash.com/photo-1580274455191-1c62238fa333?w=600&h=400&fit=crop", badge: "Super SUV" }
         ];
 
+        // Load cars function
         function loadCars() {
             const grid = document.getElementById('carGrid');
-            if (!grid) return;
-            grid.innerHTML = cars.map(car => `
-                <div class="car-card">
-                    <div class="car-img">
-                        <img src="${car.img}" alt="${car.name}" loading="lazy">
-                        <div class="car-badge">${car.badge}</div>
-                    </div>
-                    <div class="car-info">
-                        <div class="car-title">${car.name} ${car.year}</div>
-                        <div class="car-meta">
-                            <span><i class="fas fa-users"></i> ${car.passengers} seats</span>
-                            <span><i class="fas fa-cog"></i> ${car.trans}</span>
+            if (!grid) {
+                console.error('carGrid element not found');
+                return;
+            }
+            
+            let html = '';
+            for (let i = 0; i < cars.length; i++) {
+                const car = cars[i];
+                html += `
+                    <div class="car-card">
+                        <div class="car-img">
+                            <img src="${car.img}" alt="${car.name}" loading="lazy" onerror="this.src='https://placehold.co/600x400/e5e5e5/666?text=${car.name}'">
+                            <div class="car-badge">${car.badge}</div>
                         </div>
-                        <div class="car-price">$${car.price} <span>/ day</span></div>
-                        <button class="btn-glass" style="width:100%; background:#000; color:white;" onclick="bookCar('${car.name}')">Rent now →</button>
+                        <div class="car-info">
+                            <div class="car-title">${car.name} ${car.year}</div>
+                            <div class="car-meta">
+                                <span><i class="fas fa-users"></i> ${car.passengers} seats</span>
+                                <span><i class="fas fa-cog"></i> ${car.trans}</span>
+                            </div>
+                            <div class="car-price">$${car.price} <span>/ day</span></div>
+                            <button class="btn-glass" style="width:100%; background:#000; color:white;" onclick="bookCar('${car.name}')">Rent now →</button>
+                        </div>
                     </div>
-                </div>
-            `).join('');
+                `;
+            }
+            grid.innerHTML = html;
+            console.log('Cars loaded successfully:', cars.length);
         }
 
-        function bookCar(name) { alert(`✨ ${name} selected. Proceed to checkout.`); }
-        function searchCars() { alert(`🔍 Showing available cars in your area.`); }
+        // Functions
+        function bookCar(name) { 
+            alert(`✨ ${name} selected. Proceed to checkout.`); 
+        }
         
-        function toggleMobileMenu() {
-            const navLinks = document.getElementById('navLinks');
-            navLinks.classList.toggle('active');
+        function searchCars() { 
+            alert(`🔍 Showing available cars in your area.`); 
+        }
+        
+        // Mobile menu - FIXED
+        const menuBtn = document.getElementById('menuBtn');
+        const navLinks = document.getElementById('navLinks');
+        
+        if (menuBtn && navLinks) {
+            menuBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                navLinks.classList.toggle('show');
+            });
+            
+            // Close menu when clicking a link
+            const links = document.querySelectorAll('.nav-link');
+            links.forEach(link => {
+                link.addEventListener('click', function() {
+                    navLinks.classList.remove('show');
+                });
+            });
+        }
+        
+        // Modal functions
+        function openOwnerModal() { 
+            document.getElementById('ownerModal').style.display = 'flex'; 
+        }
+        
+        function closeOwnerModal() { 
+            document.getElementById('ownerModal').style.display = 'none'; 
+        }
+        
+        function openLoginModal() { 
+            document.getElementById('loginModal').style.display = 'flex'; 
+        }
+        
+        function closeLoginModal() { 
+            document.getElementById('loginModal').style.display = 'none'; 
         }
 
-        function closeMobileMenu() {
-            const navLinks = document.getElementById('navLinks');
-            navLinks.classList.remove('active');
+        // Form submissions
+        const ownerForm = document.getElementById('ownerForm');
+        if (ownerForm) {
+            ownerForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                alert('✅ Thank you! We\'ll review your car within 24 hours.');
+                closeOwnerModal();
+                ownerForm.reset();
+            });
         }
 
-        function openOwnerModal() { document.getElementById('ownerModal').style.display = 'flex'; }
-        function closeOwnerModal() { document.getElementById('ownerModal').style.display = 'none'; }
-        function openLoginModal() { document.getElementById('loginModal').style.display = 'flex'; }
-        function closeLoginModal() { document.getElementById('loginModal').style.display = 'none'; }
-
-        document.getElementById('ownerForm')?.addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert('✅ Thank you! We\'ll review your car within 24 hours.');
-            closeOwnerModal();
-            e.target.reset();
-        });
-
-        document.getElementById('loginForm')?.addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert('🎉 Demo: Redirecting to dashboard.');
-            closeLoginModal();
-        });
+        const loginForm = document.getElementById('loginForm');
+        if (loginForm) {
+            loginForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                alert('🎉 Demo: Redirecting to dashboard.');
+                closeLoginModal();
+            });
+        }
 
         // Close modal when clicking outside
         window.onclick = (event) => {
@@ -1098,26 +974,30 @@
             const loginModal = document.getElementById('loginModal');
             if (event.target === ownerModal) closeOwnerModal();
             if (event.target === loginModal) closeLoginModal();
+            
+            // Close mobile menu when clicking outside
+            if (navLinks && navLinks.classList.contains('show')) {
+                if (!event.target.closest('.nav-container')) {
+                    navLinks.classList.remove('show');
+                }
+            }
         };
-
-        // Custom cursor (desktop only)
-        const cursorDot = document.querySelector('.cursor-dot');
-        const cursorOutline = document.querySelector('.cursor-outline');
-        if (cursorDot && cursorOutline && window.innerWidth > 768) {
-            window.addEventListener('mousemove', (e) => {
-                cursorDot.style.transform = `translate(${e.clientX - 3}px, ${e.clientY - 3}px)`;
-                cursorOutline.style.transform = `translate(${e.clientX - 20}px, ${e.clientY - 20}px)`;
-            });
-        }
 
         // Navbar scroll effect
         window.addEventListener('scroll', () => {
             const navbar = document.getElementById('navbar');
-            if (window.scrollY > 50) navbar.style.boxShadow = '0 4px 20px rgba(0,0,0,0.05)';
-            else navbar.style.boxShadow = 'none';
+            if (window.scrollY > 50) {
+                navbar.style.boxShadow = '0 4px 20px rgba(0,0,0,0.05)';
+            } else {
+                navbar.style.boxShadow = 'none';
+            }
         });
 
-        loadCars();
+        // Load cars when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            loadCars();
+            console.log('Page fully loaded');
+        });
     </script>
 </body>
 </html>
